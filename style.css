@@ -6,7 +6,7 @@
 
 .container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: #020024;
     background: linear-gradient(145deg, #020024 0%, #1717aa 5%, #00d4ff 100%);
     display: flex;
@@ -16,7 +16,7 @@
 .app {
     background-color: #fff;
     width: 80%;
-    height: 80vh;
+    height: fit-content;
     border-radius: 30px;
     padding: 30px;
     display: flex;
@@ -77,10 +77,13 @@
     transition: all 0.5s ease;
     border: #1717aa 2px solid;
 }
-.btn:hover {
+.btn:hover:not([disabled]) {
     background-color: #1717aa;
     color: #fff;
     border: #949494 2px solid;
+}
+.btn:disabled {
+    cursor: no-drop;
 }
 #answerButtons {
     width: 100%;
@@ -102,4 +105,24 @@
 #nextBtn:hover {
     background: linear-gradient(145deg, #1717aa 2%, #00d4ff 100%);
     color: #fff;
+}
+.correct {
+    background-color: #50e850;
+    color: #000;
+}
+.incorrect {
+    background-color: #ff5454;
+    color: #000;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        height: fit-content;
+    }
+    .app {
+        height: fit-content;
+    }
+    .answer {
+        flex-direction: column;
+    }
 }
